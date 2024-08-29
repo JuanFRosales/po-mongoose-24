@@ -1,3 +1,4 @@
+import { Polygon } from 'geojson';
 import {NextFunction, Request, Response} from 'express';
 import SpeciesModel from '../../models/speciesModel';
 import {Species} from '../../types/Species';
@@ -21,6 +22,24 @@ const postSpecies = async (
       message: 'Species created',
       data: savedSpecies,
     });
+  } catch (error) {
+    next(new CustomError((error as Error).message, 500));
+  }
+};
+
+const getSpeciesByLocation = async (
+  req: Request<{}, {}, {}, { polygon: Polygon }>,
+  res: Response<Species[]>,
+  next: NextFunction,
+) => {
+  try {
+    if (!req.query.polygon || req.query.polygon.type !== 'Polygon') {
+      throw new CustomError('Invalid polygon format', 400);
+    }
+
+    const species = await SpeciesModel.findByArea(req.query.polygon);
+
+    res.json(species);
   } catch (error) {
     next(new CustomError((error as Error).message, 500));
   }
@@ -104,4 +123,4 @@ const deleteSpecies = async (
   }
 };
 
-export {postSpecies, getSpecies, getSingleSpecies, putSpecies, deleteSpecies};
+export {postSpecies, getSpecies, getSingleSpecies, putSpecies, deleteSpecies, getSpeciesByLocation};
