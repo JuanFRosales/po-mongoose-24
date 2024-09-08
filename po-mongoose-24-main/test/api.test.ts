@@ -29,7 +29,7 @@ import {
   putAnimal,
 } from './testAnimals';
 import {TestAnimal, TestCategory, TestSpecies} from './testTypes';
-import { describe, it, beforeAll } from 'node:test';
+import { describe, it } from 'node:test';
 
 describe('GET /api/v1', () => {
   beforeAll(async () => {
@@ -209,7 +209,6 @@ describe('GET /api/v1', () => {
   });
 
   // delete test data
-  /*
   it('Should delete a category', async () => {
     if (Array.isArray(categoryResponse.data)) {
       return;
@@ -230,8 +229,11 @@ describe('GET /api/v1', () => {
     }
     await deleteAnimal(app, animalResponse.data._id);
   });
-  */
 });
+function beforeAll(arg0: () => Promise<void>) {
+  throw new Error('Function not implemented.');
+}
+
 function afterAll(arg0: () => Promise<void>) {
   throw new Error('Function not implemented.');
 }

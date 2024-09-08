@@ -1,5 +1,4 @@
-import WikiImage from "../types/wikiImage";
-
+import WikiImage from '../types/wikiImage';
 
 const getWikiImage = async (name: string): Promise<string> => {
   const url = `https://en.wikipedia.org/w/api.php?action=query&titles=${name}&prop=pageimages&format=json&pithumbsize=640&formatversion=2`;

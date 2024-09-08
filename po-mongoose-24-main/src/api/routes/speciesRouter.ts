@@ -5,7 +5,7 @@ import {
   getSpecies,
   postSpecies,
   putSpecies,
-  getSpeciesByLocation
+  getSpeciesByLocation,
 } from '../controllers/speciesController';
 import {addImageToSpecies} from '../../middlewares';
 

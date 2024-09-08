@@ -15,8 +15,8 @@ router.route('/').post(postAnimal).get(getAnimal);
 
 router.route('/location').get(getAnimalsByBox);
 
-router.route('/:id').get(getSingleAnimal).put(putAnimal).delete(deleteAnimal);
-
 router.route('/species/:species').get(getBySpecies);
+
+router.route('/:id').get(getSingleAnimal).put(putAnimal).delete(deleteAnimal);
 
 export default router;
