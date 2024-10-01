@@ -8,3 +8,22 @@
 ![image](/screenshots/Näyttökuva%202024-9-8%20kello%2022.14.25.png)
 
 ![image](/screenshots/Näyttökuva%202024-9-8%20kello%2022.14.56.png)
+
+
+# Docker assignment
+
+## I built the mongoose rest api on docker for this assignment
+
+### Container
+
+![image](/screenshots/mongo-docker1.png)
+
+### Image
+
+![image](/screenshots/mongo-docker-image.png)
+
+
+### Test with posman
+
+
+![image](/screenshots/mongo-docker.png)
